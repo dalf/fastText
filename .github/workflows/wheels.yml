@@ -62,8 +62,6 @@ jobs:
             pyversion: "*"
         include:
           - image: manylinux2014_aarch64
-            pyversion: "cp37*"
-          - image: manylinux2014_aarch64
             pyversion: "cp38*"
           - image: manylinux2014_aarch64
             pyversion: "cp39*"
@@ -71,8 +69,8 @@ jobs:
             pyversion: "cp310*"
           - image: manylinux2014_aarch64
             pyversion: "cp311*"
-          - image: musllinux_1_1_aarch64
-            pyversion: "cp37*"
+          - image: manylinux2014_aarch64
+            pyversion: "cp312*"
           - image: musllinux_1_1_aarch64
             pyversion: "cp38*"
           - image: musllinux_1_1_aarch64
@@ -81,7 +79,8 @@ jobs:
             pyversion: "cp310*"
           - image: musllinux_1_1_aarch64
             pyversion: "cp311*"
-
+          - image: musllinux_1_1_aarch64
+            pyversion: "cp312*"
     steps:
     - uses: actions/checkout@v3
 
@@ -111,7 +110,7 @@ jobs:
 
       matrix:
         os: [macos-latest, windows-2019]
-        python_version: ["3.7", "3.8", "3.9", "3.10", "3.11", "pypy-3.8-v7.3.7", "pypy-3.9-v7.3.9"]
+        python_version: ["3.8", "3.9", "3.10", "3.11", "3.12", "pypy-3.8-v7.3.7", "pypy-3.9-v7.3.9", "pypy-3.10-v7.3.13"]
 
     runs-on: ${{ matrix.os }}
     env: { MACOSX_DEPLOYMENT_TARGET: 10.15 }
